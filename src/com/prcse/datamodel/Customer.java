@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /*
- * DEV NOTES: It may be better to use a decorator for customer
+ *
  */
 public class Customer extends PersistantObject {
     
@@ -20,6 +20,7 @@ public class Customer extends PersistantObject {
     private String town;
     private String county;
     private Date created;
+	//TODO add image string data members
     
     public Customer()
     {

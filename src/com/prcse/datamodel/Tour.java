@@ -3,13 +3,14 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 
 /*
- * use decorator pattern?
+ *
  */
 public class Tour extends PersistantObject {
 
 	ArrayList<Billing> bills;
 	String name;
 	Artist artist;
+	//TODO add image string data members
 	
 	public Tour(long id, String name, Artist artist)
 	{

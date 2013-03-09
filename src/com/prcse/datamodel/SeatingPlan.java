@@ -1,14 +1,18 @@
 package com.prcse.datamodel;
 
+import java.util.ArrayList;
+
 public class SeatingPlan extends PersistantObject {
 	
 	private Venue venue;
 	private String name;
+	private ArrayList<Event> events;
 	
-	public SeatingPlan(Venue venue, String name)
+	public SeatingPlan(long id, String name, Venue venue)
 	{
 		this.venue = venue;
 		this.name = name;
+		events = new ArrayList<Event>();
 	}
 
 	public Venue getVenue() {
@@ -25,5 +29,21 @@ public class SeatingPlan extends PersistantObject {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public ArrayList<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(ArrayList<Event> events) {
+		this.events = events;
+	}
+	
+	public void addEvent(Event event) {
+		this.events.add(event);
+	}
+	
+	public void removeEvent(Event event) {
+		this.events.remove(event);
 	}
 }

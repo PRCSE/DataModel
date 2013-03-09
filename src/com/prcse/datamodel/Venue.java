@@ -5,16 +5,16 @@ import java.util.ArrayList;
 
 public class Venue extends PersistantObject {
 	
-	//ArrayList<SeatingPlan> seatingPlan;
-	ArrayList<Event> events;
+	ArrayList<SeatingPlan> seatingPlan;
 	String name;
 	double geoLat;
 	double geoLong;
+	//TODO add image string data members
 	//TODO add postcode data member with getters and setters
 
 	public Venue(long id, String name)
 	{
-		this.events = new ArrayList<Event>();
+		this.seatingPlan = new ArrayList<SeatingPlan>();
 		this.name = name;
 		this.id = id;
 		this.geoLat = 0;
@@ -23,34 +23,25 @@ public class Venue extends PersistantObject {
 	
 	public Venue(String name, double geoLat, double geoLong)
 	{
-		this.events = new ArrayList<Event>();
+		this.seatingPlan = new ArrayList<SeatingPlan>();
 		this.name = name;
 		this.geoLat = geoLat;
 		this.geoLong = geoLong;
 	}
 	
-	public void addEvent(Event newEvent)
+	public void addSeatingPlan(SeatingPlan seatingPlan)
 	{
-		if (this.events == null)
-		{
-			this.events = new ArrayList<Event>();
-		}
-		this.events.add(newEvent);
+		this.seatingPlan.add(seatingPlan);
 	}
 	
-	public void removeEventAt(int index)
+	public void removeSeatingPlan(SeatingPlan seatingPlan)
 	{
-		this.events.remove(index);
-	}
-	
-	public void removeEvent(Event event)
-	{
-		this.events.remove(event);
+		this.seatingPlan.remove(seatingPlan);
 	}
 
-	public ArrayList<Event> getEvents() 
+	public ArrayList<SeatingPlan> getSeatingPlan() 
 	{
-		return events;
+		return seatingPlan;
 	}
 
 	public String getName() 
