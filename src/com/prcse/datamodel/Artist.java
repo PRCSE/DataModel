@@ -11,7 +11,7 @@ public class Artist extends PersistantObject {
 	String bio;
 	String thumb;
 	String image;
-
+	
 	public Artist(long id, String name, String bio, String genres, String thumb, String image) {
 		super();
 		this.id = id;
@@ -107,8 +107,11 @@ public class Artist extends PersistantObject {
     	this.tours.remove(tour);
     }
     
-	public String toString()
-	{
+    public Tour getTour(int tourId) {
+    	return this.tours.get(tourId);
+    }
+    
+	public String toString() {
 		return name;
 	}
 }
