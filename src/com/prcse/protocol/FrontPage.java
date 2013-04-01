@@ -52,4 +52,9 @@ public class FrontPage extends BaseRequest {
 	public ArrayList getEvents() {
 		return events;
 	}
+
+	@Override
+	public boolean shouldSync() {
+		return false;
+	}
 }

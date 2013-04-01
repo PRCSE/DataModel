@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public interface PrcseSource extends Connectable {
 
-	ArrayList getFrontPage() throws Exception;
-
+	public abstract ArrayList<Object> getFrontPage() throws Exception;
+	
+	
 }

@@ -9,9 +9,10 @@ public class Artist extends PersistantObject {
 	ArrayList<Tour> tours;
 	String name;
 	String bio;
-	//TODO add image string data members
+	String thumb;
+	String image;
 
-	public Artist(long id, String name, String bio, String genres) {
+	public Artist(long id, String name, String bio, String genres, String thumb, String image) {
 		super();
 		this.id = id;
 		this.genres = new ArrayList<String>();
@@ -19,6 +20,8 @@ public class Artist extends PersistantObject {
 		this.tours = new ArrayList<Tour>();
 		this.name = name;
 		this.bio = bio;
+		this.thumb = thumb;
+		this.image = image;
 		
 		if(genres != null) {
 			String[] splitGenres = genres.split(",");
@@ -62,7 +65,23 @@ public class Artist extends PersistantObject {
 		this.bio = bio;
 	}
 	
-    public void addGenre(String genre)
+    public String getThumb() {
+		return thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void addGenre(String genre)
     {
     	this.genres.add(genre);
     }

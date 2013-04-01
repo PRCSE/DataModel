@@ -7,6 +7,7 @@ public interface Request {
 	public Object getResult();
 	public String getError();
 	public boolean shouldBroadcast();
+	public boolean shouldSync();
 	public void setRequestId(int value);
 	public int getRequestId();
 	public void setClientId(int value);
