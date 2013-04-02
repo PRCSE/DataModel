@@ -3,6 +3,7 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 
 
+
 public class Venue extends PersistantObject {
 	
 	ArrayList<SeatingPlan> seatingPlan;

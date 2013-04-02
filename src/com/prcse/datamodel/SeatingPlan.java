@@ -2,6 +2,7 @@ package com.prcse.datamodel;
 
 import java.util.ArrayList;
 
+
 public class SeatingPlan extends PersistantObject {
 	
 	private Venue venue;
