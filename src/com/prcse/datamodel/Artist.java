@@ -11,7 +11,6 @@ public class Artist extends PersistantObject {
 	String bio;
 	String thumb;
 	String image;
-	String testing;
 	
 	public Artist(long id, String name, String bio, String genres, String thumb, String image) {
 		super();
