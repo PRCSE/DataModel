@@ -20,7 +20,7 @@ public class Customer extends PersistantObject {
     private String town;
     private String county;
     private Date created;
-	//TODO add image string data members
+    private String thumb;
     
     public Customer()
     {
@@ -173,5 +173,13 @@ public class Customer extends PersistantObject {
 
     public Date getCreated() {
 		return created;
+	}
+
+	public String getThumb() {
+		return thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
 	}
 }

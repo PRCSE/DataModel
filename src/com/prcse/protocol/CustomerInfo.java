@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.prcse.datamodel.Customer;
 import com.prcse.utils.Connectable;
+import com.prcse.utils.PrcseSource;
 
 public class CustomerInfo extends BaseRequest {
 	
@@ -26,7 +27,11 @@ public class CustomerInfo extends BaseRequest {
 	@Override
 	public void handleRequest(Connectable dataSource) {
 		if(this.customer == null){
-			//login
+			try {
+				((PrcseSource)dataSource).login(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
 		}
 		else {
 			//sync customer data

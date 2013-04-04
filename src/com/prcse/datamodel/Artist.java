@@ -4,13 +4,12 @@ import java.util.ArrayList;
 
 public class Artist extends PersistantObject {
 
-	ArrayList<String> genres;
-	ArrayList<Billing> billings;
-	ArrayList<Tour> tours;
-	String name;
-	String bio;
-	String thumb;
-	String image;
+	private ArrayList<String> genres;
+	private ArrayList<Billing> billings;
+	private ArrayList<Tour> tours;
+	private String name;
+	private String bio;
+	private String thumb;
 	
 	public Artist(long id, String name, String bio, String genres, String thumb, String image) {
 		super();
@@ -21,7 +20,6 @@ public class Artist extends PersistantObject {
 		this.name = name;
 		this.bio = bio;
 		this.thumb = thumb;
-		this.image = image;
 		
 		if(genres != null) {
 			String[] splitGenres = genres.split(",");
@@ -71,14 +69,6 @@ public class Artist extends PersistantObject {
 
 	public void setThumb(String thumb) {
 		this.thumb = thumb;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public void addGenre(String genre)

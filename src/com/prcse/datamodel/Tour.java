@@ -10,7 +10,7 @@ public class Tour extends PersistantObject {
 	ArrayList<Billing> bills;
 	String name;
 	Artist artist;
-	//TODO add image string data members
+	private String thumb;
 	
 	public Tour(long id, String name, Artist artist)
 	{
@@ -48,5 +48,17 @@ public class Tour extends PersistantObject {
 	public void setName(String name) 
 	{
 		this.name = name;
+	}
+
+	public String getThumb() {
+		return thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
+	}
+
+	public Artist getArtist() {
+		return artist;
 	}
 }

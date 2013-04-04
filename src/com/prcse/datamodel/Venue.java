@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 public class Venue extends PersistantObject {
 	
-	ArrayList<SeatingPlan> seatingPlan;
-	String name;
-	double geoLat;
-	double geoLong;
-	//TODO add image string data members
-	//TODO add postcode data member with getters and setters
+	private ArrayList<SeatingPlan> seatingPlan;
+	private String name;
+	private double geoLat;
+	private double geoLong;
+	private String thumb;
+	private String postcode;
 
 	public Venue(long id, String name)
 	{
@@ -73,5 +73,21 @@ public class Venue extends PersistantObject {
 	public void setGeoLong(double geoLong) 
 	{
 		this.geoLong = geoLong;
+	}
+
+	public String getThumb() {
+		return thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 }

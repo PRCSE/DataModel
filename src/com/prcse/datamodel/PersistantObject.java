@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public abstract class PersistantObject implements Serializable {
 	protected long id;
-
+	
 	public long getId() {
 		return id;
 	}

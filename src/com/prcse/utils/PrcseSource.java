@@ -9,4 +9,6 @@ public interface PrcseSource extends Connectable {
 	public abstract ArrayList<Object> getFrontPage() throws Exception;
 	
 	public abstract CustomerInfo login(CustomerInfo request) throws Exception;
+
+	public abstract CustomerInfo syncCustomer(CustomerInfo request) throws Exception;
 }
