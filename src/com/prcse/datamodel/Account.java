@@ -19,12 +19,18 @@ public class Account extends PersistantObject {
         token = "";
     }
     
-    public Account(String email, String password)
+    public Account(String email, String password, boolean newAccount)
     {
         this.email = email;
-
-        this.token = salt(password, email);
-        this.token = hash(this.token);
+        
+        // if new account then salt and hash else copy from source
+        if(newAccount == true) {
+        	this.token = salt(password, email);
+            this.token = hash(this.token);
+        }
+        else {
+        	this.token = password;
+        }
     }
     
     private static String salt(String message, String salt)

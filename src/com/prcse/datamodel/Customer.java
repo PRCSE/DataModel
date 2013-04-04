@@ -38,9 +38,9 @@ public class Customer extends PersistantObject {
         bookings = new ArrayList<Booking>();
     }
 
-    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county) 
+    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county, boolean newAccount) 
     {
-        this.account = new Account(email, password);
+        this.account = new Account(email, password, newAccount);
         this.title = title;
     	this.forename = forename;
         this.surname = surname;
