@@ -27,6 +27,7 @@ public class CustomerInfo extends BaseRequest {
 	@Override
 	public void handleRequest(Connectable dataSource) {
 		if(this.customer == null){
+			// login
 			try {
 				((PrcseSource)dataSource).login(this);
 			} catch (Exception e) {
@@ -35,6 +36,11 @@ public class CustomerInfo extends BaseRequest {
 		}
 		else {
 			//sync customer data
+			try {
+				((PrcseSource)dataSource).syncCustomer(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
 		}
 	}
 
