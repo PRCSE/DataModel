@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public class Tour extends PersistantObject {
 
-	ArrayList<Billing> bills;
-	String name;
-	Artist artist;
+	private ArrayList<Billing> bills;
+	private String name;
+	private Artist artist;
 	private String thumb;
 	
 	public Tour(long id, String name, Artist artist)
@@ -60,5 +60,10 @@ public class Tour extends PersistantObject {
 
 	public Artist getArtist() {
 		return artist;
+	}
+
+	@Override
+	public String toString() {
+		return "Tour [name=" + name + ", artist=" + artist + "]";
 	}
 }

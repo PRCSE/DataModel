@@ -5,8 +5,8 @@ package com.prcse.datamodel;
  */
 public class Billing extends PersistantObject {
 	
-	Artist artist;
-	Event event;
+	private Artist artist;
+	private Event event;
 	int lineupOrder;
 	
 	public Billing(long id, Artist artist, Event event, int lineupOrder)
@@ -45,6 +45,11 @@ public class Billing extends PersistantObject {
 	public void setLineupOrder(int lineupOrder) {
 		this.lineupOrder = lineupOrder;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Billing [artist=" + artist + ", event=" + event + "]";
+	}
 	
-	//TODO add toString
 }

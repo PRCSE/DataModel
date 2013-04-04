@@ -53,4 +53,11 @@ public class Favourite extends PersistantObject {
 	public void setEventId(Long eventId) {
 		this.eventId = eventId;
 	}
+
+	@Override
+	public String toString() {
+		return "Favourite [customerId=" + customerId + ", artistId=" + artistId
+				+ ", venueId=" + venueId + ", genreId=" + genreId
+				+ ", eventId=" + eventId + "]";
+	}
 }

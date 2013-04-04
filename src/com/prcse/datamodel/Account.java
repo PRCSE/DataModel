@@ -124,4 +124,9 @@ public class Account extends PersistantObject {
 	public void setPreferences(String preferences) {
 		this.preferences = preferences;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [email=" + email + "]";
+	}
 }

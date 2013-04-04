@@ -13,4 +13,8 @@ public abstract class PersistantObject implements Serializable {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "PersistantObject [id=" + id + "]";
+	}
 }

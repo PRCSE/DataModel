@@ -69,4 +69,10 @@ public class SeatingArea extends PersistantObject {
 	public void setPlan(SeatingPlan plan) {
 		this.plan = plan;
 	}
+
+	@Override
+	public String toString() {
+		return "SeatingArea [name=" + name + ", capacity=" + capacity
+				+ ", plan=" + plan + "]";
+	}
 }

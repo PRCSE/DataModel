@@ -38,4 +38,9 @@ public class Permission extends PersistantObject {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Permission [accounts=" + accounts + ", name=" + name + "]";
+	}
 }

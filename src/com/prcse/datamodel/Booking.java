@@ -137,6 +137,9 @@ public class Booking extends PersistantObject {
 	{
 		this.cancelConfirmed = cancelConfirmed;
 	}
-	
-	//TODO add toString
+
+	@Override
+	public String toString() {
+		return "Booking [seats=" + seats + ", event=" + event + "]";
+	}
 }

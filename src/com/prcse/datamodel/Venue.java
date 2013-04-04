@@ -90,4 +90,10 @@ public class Venue extends PersistantObject {
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
+
+	@Override
+	public String toString() {
+		return "Venue [name=" + name + ", geoLat=" + geoLat + ", geoLong="
+				+ geoLong + ", postcode=" + postcode + "]";
+	}
 }

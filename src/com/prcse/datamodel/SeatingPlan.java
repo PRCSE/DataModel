@@ -47,4 +47,9 @@ public class SeatingPlan extends PersistantObject {
 	public void removeEvent(Event event) {
 		this.events.remove(event);
 	}
+
+	@Override
+	public String toString() {
+		return "SeatingPlan [venue=" + venue + ", name=" + name + "]";
+	}
 }

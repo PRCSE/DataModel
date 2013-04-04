@@ -100,8 +100,9 @@ public class Artist extends PersistantObject {
     public Tour getTour(int tourId) {
     	return this.tours.get(tourId);
     }
-    
+
+	@Override
 	public String toString() {
-		return name;
+		return "Artist [name=" + name + ", bio=" + bio + "]";
 	}
 }

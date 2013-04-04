@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class Event extends PersistantObject {
 	
-	ArrayList<Billing> billings;
-	String name;
-	Date startTime;
-	Date endTime;
-	SeatingPlan seatingPlan;
+	private ArrayList<Billing> billings;
+	private String name;
+	private Date startTime;
+	private Date endTime;
+	private SeatingPlan seatingPlan;
 	
 	public Event(long id, String name, Date startTime, Date endTime)
 	{
@@ -19,7 +19,6 @@ public class Event extends PersistantObject {
 		this.endTime = endTime;
 		this.billings = new ArrayList<Billing>();
 		this.seatingPlan = null;
-		
 	}
 
 	public ArrayList<Billing> getBillings() 
@@ -77,4 +76,9 @@ public class Event extends PersistantObject {
     public void removeBilling(Billing billing) {
     	this.billings.remove(billing);
     }
+
+	@Override
+	public String toString() {
+		return "Event [name=" + name + ", startTime=" + startTime + "]";
+	}
 }
