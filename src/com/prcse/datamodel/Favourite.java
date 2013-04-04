@@ -7,6 +7,7 @@ public class Favourite extends PersistantObject {
 	private Long genreId;
 	private Long eventId;
 	
+	// default constructor
 	public Favourite() {
 		super();
 	}
