@@ -104,22 +104,4 @@ public class PrcseConnection extends Observable implements Connectable, PrcseSou
 		}
 		return null;
 	}
-
-	@Override
-	public CustomerInfo registerCustomer(CustomerInfo request) throws Exception {
-		out.writeObject(request);
-		try {
-			CustomerInfo response = (CustomerInfo)in.readObject();
-			if(response.getError() != null) {
-				error = response.getError();
-			}
-			else {
-				return response;
-			}
-		}
-		catch (ClassNotFoundException e) {
-			error = e.getMessage();
-		}
-		return null;
-	}
 }

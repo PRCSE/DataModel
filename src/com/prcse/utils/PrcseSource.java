@@ -11,6 +11,4 @@ public interface PrcseSource extends Connectable {
 	public abstract CustomerInfo login(CustomerInfo request) throws Exception;
 
 	public abstract CustomerInfo syncCustomer(CustomerInfo request) throws Exception;
-	
-	public abstract CustomerInfo registerCustomer(CustomerInfo request) throws Exception;
 }
