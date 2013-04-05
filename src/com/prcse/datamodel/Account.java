@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class Account extends PersistantObject {
     
+	//TODO change getter and setter for token to correct method name
+	// currently named get/set password
+	
 	private ArrayList<Permission> permissions;
 	private String email;
     private String token;		// the 'password' sent to to the server for login authentication
