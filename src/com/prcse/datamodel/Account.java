@@ -7,15 +7,11 @@ import java.util.ArrayList;
 
 
 public class Account extends PersistantObject {
-    
-	//TODO change getter and setter for token to correct method name
-	// currently named get/set password
 	
 	private ArrayList<Permission> permissions;
 	private String email;
     private String token;		// the 'password' sent to to the server for login authentication
     private String preferences;
-    private String test;
     
     public Account()
     {
@@ -87,7 +83,7 @@ public class Account extends PersistantObject {
         return email;
     }
 
-    public String getPassword() 
+    public String getToken() 
     {
         return token;
     }
@@ -97,7 +93,7 @@ public class Account extends PersistantObject {
         this.email = email;
     }
 
-    public void setPassword(String password) 
+    public void setToken(String password) 
     {
         this.token = salt(password, this.email);
         this.token = hash(this.token);

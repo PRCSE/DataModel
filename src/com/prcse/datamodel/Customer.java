@@ -7,11 +7,6 @@ import java.util.Date;
  *
  */
 public class Customer extends PersistantObject {
-    
-	//TODO create class variables - country, postcode, and created
-	// all need getters but only country and postcode need setters
-	// created is a generated date (Today) and must be set in the constructor
-	// constructor parameters must also be changed to include passing of country and postcode variables
 	
     private Account account;
 	private ArrayList<Booking> bookings;
@@ -24,6 +19,8 @@ public class Customer extends PersistantObject {
     private String addr2;
     private String town;
     private String county;
+	private String postcode;
+    private String country;
     private Date created;
     private String thumb;
     
@@ -63,7 +60,7 @@ public class Customer extends PersistantObject {
     public String toString()
     {
     	return 		"\n username: " + this.account.getEmail()
-    			+	"\n password: " + this.account.getPassword()
+    			+	"\n password: " + this.account.getToken()
     			+	"\n forename: " + this.getForename()
     			+	"\n surname: " 	+ this.getSurname();
     }
@@ -175,7 +172,6 @@ public class Customer extends PersistantObject {
         this.county = county;
     }
     
-
     public Date getCreated() {
 		return created;
 	}
@@ -186,5 +182,21 @@ public class Customer extends PersistantObject {
 
 	public void setThumb(String thumb) {
 		this.thumb = thumb;
+	}
+	
+    public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 }
