@@ -15,6 +15,7 @@ public class Account extends PersistantObject {
 	private String email;
     private String token;		// the 'password' sent to to the server for login authentication
     private String preferences;
+    private String test;
     
     public Account()
     {
