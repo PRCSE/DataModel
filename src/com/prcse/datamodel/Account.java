@@ -88,9 +88,10 @@ public class Account extends PersistantObject {
         return token;
     }
 
-    public void setEmail(String email) 
+    public void setEmail(String email, String password) 
     {
         this.email = email;
+        this.setToken(password);
     }
 
     public void setToken(String password) 

@@ -2,6 +2,7 @@ package com.prcse.protocol;
 
 import java.util.ArrayList;
 
+import com.prcse.datamodel.Account;
 import com.prcse.datamodel.Customer;
 import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
@@ -20,8 +21,12 @@ public class CustomerInfo extends BaseRequest {
 	
 	public CustomerInfo(String email, String password) {
 		super();
-		this.email = email;
-		this.password = password;
+		
+		// used to access salt and hash functions
+		Account tempAccount = new Account(email, password, true);
+		
+		this.email = tempAccount.getEmail();
+		this.password = tempAccount.getToken();
 	}
 	
 	@Override

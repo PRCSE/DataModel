@@ -1,5 +1,6 @@
 package com.prcse.datamodel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,11 +37,13 @@ public class Customer extends PersistantObject {
         this.addr2 = "";
         this.town = "";
         this.county = "";
+        this.postcode = "";
+        this.country = "";
         this.created = null;
         bookings = new ArrayList<Booking>();
     }
 
-    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county, boolean newAccount) 
+    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county, String postcode, String country, Date created, boolean newAccount) 
     {
         this.account = new Account(email, password, newAccount);
         this.title = title;
@@ -52,17 +55,27 @@ public class Customer extends PersistantObject {
         this.addr2 = addr2;
         this.town = town;
         this.county = county;
+        this.postcode = postcode;
+        this.country = country;
         this.bookings = new ArrayList<Booking>();
-        this.created = new Date();
+        
+        if(newAccount == true) {
+        	this.created = new Date();
+        }
+        else {
+        	this.created = created;
+        }
     }
     
     @Override
     public String toString()
     {
-    	return 		"\n username: " + this.account.getEmail()
+    	return 		"\n id a-c: " + this.getId() + "-" + this.account.getId()
+    			+	"\n username: " + this.account.getEmail()
     			+	"\n password: " + this.account.getToken()
     			+	"\n forename: " + this.getForename()
-    			+	"\n surname: " 	+ this.getSurname();
+    			+	"\n surname: " 	+ this.getSurname()
+    			+	"\n created: " + this.createdAsString();
     }
     
     public ArrayList<Booking> getBookings() {
@@ -175,6 +188,18 @@ public class Customer extends PersistantObject {
     public Date getCreated() {
 		return created;
 	}
+    
+    public String createdAsString() {
+    	SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+    	return fmt.format(created);
+    	
+    	// format date for oracle/mysql
+//    	String date;
+//    	date = created.toString();
+//    	String[] dateParts = date.split(" ");
+//    	date = dateParts[5] + "-" + dateParts[1] + "-" + dateParts[2];
+//    	return date;
+    }
 
 	public String getThumb() {
 		return thumb;
