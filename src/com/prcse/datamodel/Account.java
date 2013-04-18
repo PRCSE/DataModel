@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 
 public class Account extends PersistantObject {
-	
+
+	private static final long serialVersionUID = -5538084349286532764L;
 	private ArrayList<Permission> permissions;
 	private String email;
     private String token;		// the 'password' sent to to the server for login authentication
