@@ -11,8 +11,9 @@ import java.util.Date;
  */
 
 public class Booking extends PersistantObject {
-    
-    private ArrayList<SeatingArea> seats;
+
+	private static final long serialVersionUID = 2040753085021283398L;
+	private ArrayList<SeatingArea> seats;
 	private Event event = null;
     private Date created;
     private Date confirmed;

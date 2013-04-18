@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Tour extends PersistantObject {
 
+	private static final long serialVersionUID = -3305178071548108866L;
 	private ArrayList<Billing> bills;
 	private String name;
 	private Artist artist;

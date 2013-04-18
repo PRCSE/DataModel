@@ -8,8 +8,9 @@ import java.util.Date;
  *
  */
 public class Customer extends PersistantObject {
-	
-    private Account account;
+
+	private static final long serialVersionUID = 3339993911539002972L;
+	private Account account;
 	private ArrayList<Booking> bookings;
     private String title;
     private String forename;

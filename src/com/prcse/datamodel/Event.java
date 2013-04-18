@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Event extends PersistantObject {
-	
+
+	private static final long serialVersionUID = -406642166220542302L;
 	private ArrayList<Billing> billings;
 	private String name;
 	private Date startTime;

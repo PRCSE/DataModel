@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 
 public class SeatingPlan extends PersistantObject {
-	
+
+	private static final long serialVersionUID = -2603853085237292938L;
 	private Venue venue;
 	private String name;
 	private ArrayList<Event> events;

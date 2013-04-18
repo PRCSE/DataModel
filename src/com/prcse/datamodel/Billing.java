@@ -4,7 +4,8 @@ package com.prcse.datamodel;
  * Dev Note: Billing order (lineup_order) number for each artist in an event need to be exclusive?
  */
 public class Billing extends PersistantObject {
-	
+
+	private static final long serialVersionUID = -1888341062108193175L;
 	private Artist artist;
 	private Event event;
 	int lineupOrder;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Artist extends PersistantObject {
 
+	private static final long serialVersionUID = 1332872240262641119L;
 	private ArrayList<String> genres;
 	private ArrayList<Billing> billings;
 	private ArrayList<Tour> tours;

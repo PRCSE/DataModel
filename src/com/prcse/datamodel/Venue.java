@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Venue extends PersistantObject {
 	
+	private static final long serialVersionUID = 7718540087157370890L;
 	private ArrayList<SeatingPlan> seatingPlan;
 	private String name;
 	private double geoLat;

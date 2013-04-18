@@ -3,7 +3,8 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 
 public class Permission extends PersistantObject {
-	
+
+	private static final long serialVersionUID = -3700183972858884680L;
 	private ArrayList<Account> accounts;
 	private String name;
 	

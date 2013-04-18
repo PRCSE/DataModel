@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SeatingArea extends PersistantObject {
 
+	private static final long serialVersionUID = 1617913797946293969L;
 	private ArrayList<Booking> booked;
 	private String name;
 	private int capacity;

@@ -3,6 +3,8 @@ package com.prcse.datamodel;
 import java.io.Serializable;
 
 public abstract class PersistantObject implements Serializable {
+
+	private static final long serialVersionUID = 7248168704303738812L;
 	protected long id;
 	
 	public long getId() {

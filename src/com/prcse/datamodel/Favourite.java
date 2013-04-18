@@ -1,6 +1,8 @@
 package com.prcse.datamodel;
 
 public class Favourite extends PersistantObject {
+
+	private static final long serialVersionUID = -5958147671107102663L;
 	private Long customerId;
 	private Long artistId;
 	private Long venueId;
