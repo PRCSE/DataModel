@@ -135,6 +135,8 @@ public class Account extends PersistantObject {
 
 	@Override
 	public String toString() {
-		return "Account [email=" + email + "]";
+		return 		"\n id: " + this.getId()
+    			+	"\n username: " + this.getEmail()
+    			+	"\n password: " + this.getToken();
 	}
 }

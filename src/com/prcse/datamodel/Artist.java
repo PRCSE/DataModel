@@ -12,7 +12,7 @@ public class Artist extends PersistantObject {
 	private String bio;
 	private String thumb;
 	
-	public Artist(long id, String name, String bio, String genres, String thumb, String image) {
+	public Artist(long id, String name, String bio, String genres, String thumb) {
 		super();
 		this.id = id;
 		this.genres = new ArrayList<String>();
