@@ -1,7 +1,10 @@
 package com.prcse.datamodel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class Event extends PersistantObject {
 
@@ -60,6 +63,24 @@ public class Event extends PersistantObject {
 	public void setEndTime(Date endTime) 
 	{
 		this.endTime = endTime;
+	}
+	
+	public String getDayToString()
+	{
+		SimpleDateFormat formatDay = new SimpleDateFormat("dd", Locale.ENGLISH);
+		return formatDay.format(startTime);
+	}
+	
+	public String getMonthToString()
+	{
+		SimpleDateFormat formatMonth = new SimpleDateFormat("mm", Locale.ENGLISH);
+		return formatMonth.format(startTime);
+	}
+	
+	public String getYearToString()
+	{
+		SimpleDateFormat formatYear = new SimpleDateFormat("yyyy", Locale.ENGLISH);
+		return formatYear.format(startTime);
 	}
 
 	public SeatingPlan getSeatingPlan() {
