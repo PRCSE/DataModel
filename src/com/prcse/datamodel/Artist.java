@@ -98,7 +98,11 @@ public class Artist extends PersistantObject {
     	this.tours.remove(tour);
     }
     
-    public Tour getTour(int tourId) {
+    public ArrayList<Tour> getTours() {
+    	return this.tours;
+    }
+    
+    public Tour getTourAt(int tourId) {
     	return this.tours.get(tourId);
     }
 
