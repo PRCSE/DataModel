@@ -14,6 +14,15 @@ public class Favourite extends PersistantObject {
 		super();
 	}
 	
+	public Favourite(Long customerId, Long artistId, Long venueId, Long genreId, Long eventId) {
+		super();
+		this.customerId = customerId;
+		this.artistId = artistId;
+		this.venueId = venueId;
+		this.genreId = genreId;
+		this.eventId = eventId;
+	}
+	
 	public Favourite(Long id, Long customerId, Long artistId, Long venueId, Long genreId, Long eventId) {
 		super();
 		this.customerId = customerId;

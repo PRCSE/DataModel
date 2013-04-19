@@ -4,15 +4,18 @@ import java.util.ArrayList;
 
 import com.prcse.datamodel.Account;
 import com.prcse.datamodel.Customer;
+import com.prcse.datamodel.Favourite;
 import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
 
 public class CustomerInfo extends BaseRequest {
 	
 	private Customer customer;
-	private ArrayList favourites;
+	private ArrayList<Favourite> favourites;
 	private String email;
 	private String password;
+	// variable not exposed to client
+	private transient boolean admin;
 	private boolean verified;
 	
 	public CustomerInfo() {
@@ -72,12 +75,16 @@ public class CustomerInfo extends BaseRequest {
 		this.customer = customer;
 	}
 
-	public ArrayList getFavourites() {
+	public ArrayList<Favourite> getFavourites() {
 		return favourites;
 	}
 
-	public void setFavourites(ArrayList favourites) {
+	public void setFavourites(ArrayList<Favourite> favourites) {
 		this.favourites = favourites;
+	}
+	
+	public void addFavourite(Long id, Long customerId, Long artistId, Long venueId, Long genreId, Long eventId) {
+		
 	}
 
 	public String getEmail() {
@@ -102,5 +109,13 @@ public class CustomerInfo extends BaseRequest {
 
 	public void setVerified(boolean verified) {
 		this.verified = verified;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 }

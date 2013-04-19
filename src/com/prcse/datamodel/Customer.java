@@ -40,11 +40,12 @@ public class Customer extends PersistantObject {
         this.county = "";
         this.postcode = "";
         this.country = "";
+        this.thumb = "";
         this.created = null;
         bookings = new ArrayList<Booking>();
     }
 
-    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county, String postcode, String country, Date created, boolean newAccount) 
+    public Customer(String email, String password, String title, String forename, String surname, String telephone, String mobile, String addr1, String addr2, String town, String county, String thumb, String postcode, String country, Date created, boolean newAccount) 
     {
         this.account = new Account(email, password, newAccount);
         this.title = title;
@@ -58,6 +59,7 @@ public class Customer extends PersistantObject {
         this.county = county;
         this.postcode = postcode;
         this.country = country;
+        this.thumb = thumb;
         this.bookings = new ArrayList<Booking>();
         
         if(newAccount == true) {
@@ -191,10 +193,11 @@ public class Customer extends PersistantObject {
 	}
     
     public String createdAsString() {
+    	// format date for oracle/mysql
     	SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
     	return fmt.format(created);
     	
-    	// format date for oracle/mysql
+    	// old custom format
 //    	String date;
 //    	date = created.toString();
 //    	String[] dateParts = date.split(" ");
