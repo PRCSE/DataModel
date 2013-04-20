@@ -52,7 +52,7 @@ public class PrcseConnection extends Observable implements Connectable, PrcseSou
 	}
 	
 	@Override
-	public ArrayList<Object> getFrontPage() throws Exception {
+	public ArrayList getFrontPage() throws Exception {
 		out.writeObject(new FrontPage());
 		try {
 			FrontPage response = (FrontPage)in.readObject();
