@@ -14,113 +14,40 @@ import com.prcse.datamodel.Artist;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
 import com.prcse.protocol.FrontPage;
+import com.prcse.protocol.Request;
 
-public class PrcseConnection extends Observable implements Connectable, PrcseSource {
-	
-    private Socket socket = null;
-    private ObjectOutputStream out = null;
-    private ObjectInputStream in = null;
-    private int clientId = 0;
-    private String host;
-    private int port;
-    private String error;
-	
-	public PrcseConnection(String host, int port) {
-		super();
-		this.host = host;
-		this.port = port;
-	}
-
-	@Override
-	public void connect() throws Exception {
-        socket = new Socket(host, port);
-        out = new ObjectOutputStream(socket.getOutputStream());
-        in = new ObjectInputStream(socket.getInputStream());
-        clientId = ((Integer)in.readObject()).intValue();
-	}
-
-	@Override
-	public void disconnect() throws Exception {
-		out.close();
-		in.close();
-		socket.close();
-		socket = null;
-	}
-
-	@Override
-	public boolean isConnected() {
-		return socket != null;
+public class PrcseConnection extends AsyncSource implements PrcseAsyncSource {
+    
+    public PrcseConnection(String host, int port) {
+		super(host, port);
 	}
 	
 	@Override
-	public ArrayList getFrontPage() throws Exception {
-		out.writeObject(new FrontPage());
-		try {
-			FrontPage response = (FrontPage)in.readObject();
-			if(response.getError() != null) {
-				error = response.getError();
-			}
-			else {
-				return response.getArtists();
-			}
-		}
-		catch (ClassNotFoundException e) {
-			error = e.getMessage();
-		}
-		return null;
+	public void getFrontPage(ResponseHandler callback) {
+		Request request = new FrontPage();
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
 	}
 
 	@Override
-	public CustomerInfo login(CustomerInfo request) throws Exception {
-		out.writeObject(request);
-		try {
-			CustomerInfo response = (CustomerInfo)in.readObject();
-			if(response.getError() != null) {
-				error = response.getError();
-			}
-			else {
-				return response;
-			}
-		}
-		catch (ClassNotFoundException e) {
-			error = e.getMessage();
-		}
-		return null;
+	public void login(CustomerInfo request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
 	}
 
 	@Override
-	public CustomerInfo syncCustomer(CustomerInfo request) throws Exception {
-		out.writeObject(request);
-		try {
-			CustomerInfo response = (CustomerInfo)in.readObject();
-			if(response.getError() != null) {
-				error = response.getError();
-			}
-			else {
-				return response;
-			}
-		}
-		catch (ClassNotFoundException e) {
-			error = e.getMessage();
-		}
-		return null;
+	public void syncCustomer(CustomerInfo request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
 	}
 
 	@Override
-	public CustomerForm getCustomerFormData(CustomerForm request) throws Exception {
-		out.writeObject(request);
-		try {
-			CustomerForm response = (CustomerForm)in.readObject();
-			if(response.getError() != null) {
-				error = response.getError();
-			}
-			else {
-				return response;
-			}
-		}
-		catch (ClassNotFoundException e) {
-			error = e.getMessage();
-		}
-		return null;
+	public void getCustomerFormData(CustomerForm request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
 	}
 }
