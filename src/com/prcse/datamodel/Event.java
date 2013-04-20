@@ -104,6 +104,19 @@ public class Event extends PersistantObject {
 			return "0000";
 		}
 	}
+	
+	public String getDateToString()
+	{
+		try
+		{
+			SimpleDateFormat formatYear = new SimpleDateFormat("EEEEEE, MMMM dd, yyyy", Locale.ENGLISH);
+			return formatYear.format(startTime);
+		}
+		catch (Exception e)
+		{
+			return "unavalible";
+		}
+	}
 
 	public SeatingPlan getSeatingPlan() {
 		return seatingPlan;
