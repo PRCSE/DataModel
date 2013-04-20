@@ -67,20 +67,42 @@ public class Event extends PersistantObject {
 	
 	public String getDayToString()
 	{
-		SimpleDateFormat formatDay = new SimpleDateFormat("dd", Locale.ENGLISH);
-		return formatDay.format(startTime);
+		try
+		{
+			SimpleDateFormat formatDay = new SimpleDateFormat("dd", Locale.ENGLISH);
+			return formatDay.format(startTime);
+		}
+		catch (Exception e)
+		{
+			return "NA";
+		}
+		
 	}
 	
 	public String getMonthToString()
 	{
-		SimpleDateFormat formatMonth = new SimpleDateFormat("mm", Locale.ENGLISH);
-		return formatMonth.format(startTime);
+		try
+		{
+			SimpleDateFormat formatMonth = new SimpleDateFormat("mm", Locale.ENGLISH);
+			return formatMonth.format(startTime);
+		}
+		catch (Exception e)
+		{
+			return "NA";
+		}
 	}
 	
 	public String getYearToString()
 	{
-		SimpleDateFormat formatYear = new SimpleDateFormat("yyyy", Locale.ENGLISH);
-		return formatYear.format(startTime);
+		try
+		{
+			SimpleDateFormat formatYear = new SimpleDateFormat("yyyy", Locale.ENGLISH);
+			return formatYear.format(startTime);
+		}
+		catch (Exception e)
+		{
+			return "NA";
+		}
 	}
 
 	public SeatingPlan getSeatingPlan() {
