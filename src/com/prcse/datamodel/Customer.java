@@ -90,6 +90,13 @@ public class Customer extends PersistantObject {
         this.bookings = bookings;
     }
     
+    public void addBooking(Booking booking) {
+    	this.bookings.add(booking);
+    }
+    
+    public void removeBooking(Booking booking) {
+    	this.bookings.remove(booking);
+    }
     
     public Account getAccount() {
 		return account;
