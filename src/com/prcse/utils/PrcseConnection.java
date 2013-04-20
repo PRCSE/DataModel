@@ -11,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.prcse.datamodel.Artist;
+import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
 import com.prcse.protocol.FrontPage;
 
@@ -92,6 +93,24 @@ public class PrcseConnection extends Observable implements Connectable, PrcseSou
 		out.writeObject(request);
 		try {
 			CustomerInfo response = (CustomerInfo)in.readObject();
+			if(response.getError() != null) {
+				error = response.getError();
+			}
+			else {
+				return response;
+			}
+		}
+		catch (ClassNotFoundException e) {
+			error = e.getMessage();
+		}
+		return null;
+	}
+
+	@Override
+	public CustomerForm getCustomerFormData(CustomerForm request) throws Exception {
+		out.writeObject(request);
+		try {
+			CustomerForm response = (CustomerForm)in.readObject();
 			if(response.getError() != null) {
 				error = response.getError();
 			}
