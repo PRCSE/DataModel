@@ -74,7 +74,7 @@ public class Event extends PersistantObject {
 		}
 		catch (Exception e)
 		{
-			return "NA";
+			return "00";
 		}
 		
 	}
@@ -83,12 +83,12 @@ public class Event extends PersistantObject {
 	{
 		try
 		{
-			SimpleDateFormat formatMonth = new SimpleDateFormat("mm", Locale.ENGLISH);
+			SimpleDateFormat formatMonth = new SimpleDateFormat("MMMM", Locale.ENGLISH);
 			return formatMonth.format(startTime);
 		}
 		catch (Exception e)
 		{
-			return "NA";
+			return "unavalible";
 		}
 	}
 	
@@ -101,7 +101,7 @@ public class Event extends PersistantObject {
 		}
 		catch (Exception e)
 		{
-			return "NA";
+			return "0000";
 		}
 	}
 
