@@ -21,6 +21,7 @@ public class CustomerBooking extends BaseRequest {
 		this.customerId = customerId;
 		this.eventId = eventId;
 		this.quantity = quantity;
+		setCreated();
 	}
 
 	@Override
@@ -80,8 +81,8 @@ public class CustomerBooking extends BaseRequest {
 		return created;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setCreated() {
+		this.created = new Date();
 	}
 
 	public CustomerBooking getBooking() {
