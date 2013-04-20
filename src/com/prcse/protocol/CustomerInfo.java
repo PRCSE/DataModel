@@ -83,8 +83,9 @@ public class CustomerInfo extends BaseRequest {
 		this.favourites = favourites;
 	}
 	
-	public void addFavourite(Long id, Long customerId, Long artistId, Long venueId, Long genreId, Long eventId) {
-		
+	public void addFavourite(Long customerId, Long artistId, Long venueId, Long genreId, Long eventId) {
+		Favourite favourite = new Favourite(customerId, artistId, venueId, genreId, eventId);
+		this.favourites.add(favourite);
 	}
 
 	public String getEmail() {
