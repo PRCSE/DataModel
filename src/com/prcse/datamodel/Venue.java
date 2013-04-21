@@ -13,6 +13,7 @@ public class Venue extends PersistantObject {
 	private double geoLong;
 	private String thumb;
 	private String postcode;
+	private String description;
 
 	public Venue(long id, String name)
 	{
@@ -31,6 +32,15 @@ public class Venue extends PersistantObject {
 		this.geoLong = geoLong;
 	}
 	
+	public Venue(long id, String name, String thumb, String postcode, String description) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.thumb = thumb;
+		this.postcode = postcode;
+		this.description = description;
+	}
+
 	public void addSeatingPlan(SeatingPlan seatingPlan)
 	{
 		this.seatingPlan.add(seatingPlan);
@@ -90,6 +100,14 @@ public class Venue extends PersistantObject {
 
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

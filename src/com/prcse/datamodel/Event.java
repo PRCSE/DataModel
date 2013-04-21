@@ -145,6 +145,11 @@ public class Event extends PersistantObject {
 	}
 	
 	public String getTourName() {
-		return this.tourName;
+		if(tourName == null) {
+			return this.tourName;
+		}
+		else {
+			return "";
+		}
 	}
 }
