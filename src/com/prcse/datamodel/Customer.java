@@ -73,7 +73,7 @@ public class Customer extends PersistantObject {
     @Override
     public String toString()
     {
-    	return 		"\n id a-c: " + this.getId() + "-" + this.account.getId()
+    	return 		"\n id c-a: " + this.getId() + "-" + this.account.getId()
     			+	"\n username: " + this.account.getEmail()
     			+	"\n password: " + this.account.getToken()
     			+	"\n forename: " + this.getForename()
@@ -201,8 +201,11 @@ public class Customer extends PersistantObject {
     
     public String createdAsString() {
     	// format date for oracle/mysql
-    	SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-    	return fmt.format(created);
+    	if(created != null) {
+    		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        	return fmt.format(created);
+    	}
+    	return null;
     	
     	// old custom format
 //    	String date;

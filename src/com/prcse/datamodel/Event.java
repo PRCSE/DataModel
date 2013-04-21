@@ -11,6 +11,7 @@ public class Event extends PersistantObject {
 	private static final long serialVersionUID = -406642166220542302L;
 	private ArrayList<Billing> billings;
 	private String name;
+	private String tourName;
 	private Date startTime;
 	private Date endTime;
 	private SeatingPlan seatingPlan;
@@ -137,5 +138,13 @@ public class Event extends PersistantObject {
 	@Override
 	public String toString() {
 		return "Event [name=" + name + ", startTime=" + startTime + "]";
+	}
+	
+	public void setTourName(String name) {
+		this.tourName = name;
+	}
+	
+	public String getTourName() {
+		return this.tourName;
 	}
 }

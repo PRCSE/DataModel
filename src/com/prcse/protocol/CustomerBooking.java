@@ -1,27 +1,34 @@
 package com.prcse.protocol;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import com.prcse.datamodel.Booking;
 import com.prcse.utils.Connectable;
+import com.prcse.utils.PrcseSource;
 
 public class CustomerBooking extends BaseRequest {
 	
-	private int customerId;
-	private int eventId;
-	private int quantity;
-	private Date created;
-	private CustomerBooking booking;
+	private long customerId;
+	private ArrayList<Long> seatIds;
+	private Booking booking;
 	
 	public CustomerBooking() {
 		super();
 	}
 	
-	public CustomerBooking(int customerId, int eventId, int quantity) {
+	public CustomerBooking(Booking booking, long customerId, ArrayList<Long> seats) {
 		super();
+		this.booking = booking;
 		this.customerId = customerId;
-		this.eventId = eventId;
-		this.quantity = quantity;
-		setCreated();
+		
+		if(seats != null) {
+			seatIds = seats;
+		}
+		else {
+			seatIds = new ArrayList<Long>();
+		}
 	}
 
 	@Override
@@ -29,9 +36,19 @@ public class CustomerBooking extends BaseRequest {
 		// TODO Auto-generated method stub
 		if(this.booking == null) {
 			// create booking
+			try {
+				((PrcseSource)dataSource).createBooking(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
 		}
-		else {
-			// set booking information by id
+		else if(this.booking.getCancelled() != null) {
+			// sync booking
+			try {
+				((PrcseSource)dataSource).cancelBooking(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
 		}
 	}
 
@@ -53,44 +70,38 @@ public class CustomerBooking extends BaseRequest {
 		return false;
 	}
 
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
-	public int getEventId() {
-		return eventId;
-	}
-
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public Date getCreated() {
-		return created;
-	}
-
-	public void setCreated() {
-		this.created = new Date();
-	}
-
-	public CustomerBooking getBooking() {
+	public Booking getBooking() {
 		return booking;
 	}
 
-	public void setBooking(CustomerBooking booking) {
+	public void setBooking(Booking booking) {
 		this.booking = booking;
 	}
 
+	public ArrayList<Long> getSeatIds() {
+		return seatIds;
+	}
+
+	public void setSeatIds(ArrayList<Long> seatIds) {
+		this.seatIds = seatIds;
+	}
+	
+	public String getCreatedAsString() {
+		// format date for oracle/mysql
+		Date created = this.booking.getCreated();
+		
+    	if(created != null) {
+    		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        	return fmt.format(created);
+    	}
+    	return null;
+	}
 }

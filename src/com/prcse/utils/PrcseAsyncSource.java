@@ -1,5 +1,6 @@
 package com.prcse.utils;
 
+import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
 
@@ -12,4 +13,8 @@ public interface PrcseAsyncSource extends Connectable {
 	public abstract void syncCustomer(CustomerInfo request, ResponseHandler callback);
 	
 	public void getCustomerFormData(CustomerForm request, ResponseHandler callback);
+	
+	public void createBooking(CustomerBooking request, ResponseHandler callback);
+	
+	public void cancelBooking(CustomerBooking request, ResponseHandler callback);
 }

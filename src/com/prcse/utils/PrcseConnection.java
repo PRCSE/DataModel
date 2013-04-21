@@ -11,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.prcse.datamodel.Artist;
+import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
 import com.prcse.protocol.FrontPage;
@@ -46,6 +47,20 @@ public class PrcseConnection extends AsyncSource implements PrcseAsyncSource {
 
 	@Override
 	public void getCustomerFormData(CustomerForm request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
+	}
+
+	@Override
+	public void createBooking(CustomerBooking request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
+	}
+
+	@Override
+	public void cancelBooking(CustomerBooking request, ResponseHandler callback) {
 		request.setRequestId(this.nextRequestId());
 		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
 		addToOutput(request);
