@@ -104,4 +104,15 @@ public class CustomerBooking extends BaseRequest {
     	}
     	return null;
 	}
+	
+	public String getCancelledAsString() {
+		// format date for oracle/mysql
+		Date cancelled = this.booking.getCancelled();
+		
+    	if(cancelled != null) {
+    		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        	return fmt.format(cancelled);
+    	}
+    	return null;
+	}
 }
