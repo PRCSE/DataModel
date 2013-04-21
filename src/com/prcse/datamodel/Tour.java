@@ -21,6 +21,11 @@ public class Tour extends PersistantObject {
 		this.artist = artist;
 	}
 	
+	public Tour(String name)
+	{
+		this.name = name;
+	}
+	
 	public void addBill(Billing bill)
 	{
 		this.bills.add(bill);
