@@ -1,6 +1,7 @@
 package com.prcse.utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
@@ -19,5 +20,7 @@ public interface PrcseSource extends Connectable {
 	public abstract CustomerBooking createBooking(CustomerBooking request) throws Exception;
 	
 	public abstract CustomerBooking cancelBooking(CustomerBooking request) throws Exception;
+
+	public abstract ArrayList<HashMap> getEventSeatingMap(long eventId);
 }
 

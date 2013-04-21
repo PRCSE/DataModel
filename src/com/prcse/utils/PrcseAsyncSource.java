@@ -17,4 +17,6 @@ public interface PrcseAsyncSource extends Connectable {
 	public void createBooking(CustomerBooking request, ResponseHandler callback);
 	
 	public void cancelBooking(CustomerBooking request, ResponseHandler callback);
+	
+	public void getEventSeatingMap(long eventId, ResponseHandler callback);
 }

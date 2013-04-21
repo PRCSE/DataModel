@@ -65,4 +65,10 @@ public class PrcseConnection extends AsyncSource implements PrcseAsyncSource {
 		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
 		addToOutput(request);
 	}
+
+	@Override
+	public void getEventSeatingMap(long eventId, ResponseHandler callback) {
+		// TODO Auto-generated method stub
+		
+	}
 }
