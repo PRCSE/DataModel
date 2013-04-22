@@ -5,39 +5,92 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-
+// Customer account which holds details for login
 public class Account extends PersistantObject {
 
-	private static final long serialVersionUID = -5538084349286532764L;
-	private ArrayList<Permission> permissions;
-	private String email;
-    private String token;		// the 'password' sent to to the server for login authentication
-    private String preferences;
+	// ======== Class Variables ======================================================== //
+	
+	private static final long serialVersionUID = -5538084349286532764L; // serialisation ID
+	private ArrayList<Permission> permissions; // permissions list for customer account
+	private String email; // customer email address
+    private String token; // the 'password' sent to to the server for login authentication
+    private String preferences; // TODO unimplemented feature variable
     
+    // ======== Class Constructors ===================================================== //
+    
+    // Default constructor
     public Account()
     {
+    	// Initialise to empty strings
         email = "";
         token = "";
     }
     
+    // Custom constructor : email - customer email, password - password to be obfuscated, newAccount - flag for new accounts
     public Account(String email, String password, boolean newAccount)
     {
         this.email = email;
         
-        // if new account then salt and hash else copy from source
+        // If creating new account then salt and hash else copy from source
         if(newAccount == true) {
         	this.token = salt(password, email);
             this.token = hash(this.token);
         }
         else {
+        	// Would most likely be set like this from database source
         	this.token = password;
         }
     }
     
+    // ======== Class Getters/Setters ================================================== //
+    
+    public String getEmail() 
+    {
+        return email;
+    }
+
+    public String getToken() 
+    {
+        return token;
+    }
+
+    public void setEmail(String email, String password) 
+    {
+    	// If changing the email then the password must be salted and hashed again
+        this.email = email;
+        this.setToken(password);
+    }
+
+    public void setToken(String password) 
+    {
+        // When setting the password it will always be salted and hashed against the email
+    	this.token = salt(password, this.email);
+        this.token = hash(this.token);
+    }
+    
+    public ArrayList<Permission> getPermission() {
+		return permissions;
+	}
+
+	public void setPermission(ArrayList<Permission> permission) {
+		this.permissions = permission;
+	}
+
+	public String getPreferences() {
+		return preferences;
+	}
+
+	public void setPreferences(String preferences) {
+		this.preferences = preferences;
+	} 
+    
+	// Method to produce a salted string from email and password
     private static String salt(String message, String salt)
     {
+    	// salted message placeholder
     	String saltedMessage = null;
     	
+    	// 
     	if (message == null || salt == null)
     	{
     		return null;
@@ -78,28 +131,6 @@ public class Account extends PersistantObject {
     	
     	return hashedMessage;
     }
-
-    public String getEmail() 
-    {
-        return email;
-    }
-
-    public String getToken() 
-    {
-        return token;
-    }
-
-    public void setEmail(String email, String password) 
-    {
-        this.email = email;
-        this.setToken(password);
-    }
-
-    public void setToken(String password) 
-    {
-        this.token = salt(password, this.email);
-        this.token = hash(this.token);
-    }
     
     public void addPermission(Permission permission)
     {
@@ -116,22 +147,6 @@ public class Account extends PersistantObject {
     	permission.removeAccount(this);
     	this.permissions.remove(permission);
     }
-
-	public ArrayList<Permission> getPermission() {
-		return permissions;
-	}
-
-	public void setPermission(ArrayList<Permission> permission) {
-		this.permissions = permission;
-	}
-
-	public String getPreferences() {
-		return preferences;
-	}
-
-	public void setPreferences(String preferences) {
-		this.preferences = preferences;
-	}
 
 	@Override
 	public String toString() {

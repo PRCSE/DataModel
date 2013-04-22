@@ -61,7 +61,7 @@ public class CustomerBooking extends BaseRequest {
 	@Override
 	public boolean shouldBroadcast() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

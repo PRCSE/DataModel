@@ -9,10 +9,10 @@ public class SeatingArea extends PersistantObject {
 	private ArrayList<Booking> booked;
 	private String name;
 	private int capacity;
-	private SeatingArea parent;
-	private SeatingPlan plan;
+	private long parent;
+	private long plan;
 	
-	public SeatingArea(String name, int capacity, SeatingArea parent, SeatingPlan plan)
+	public SeatingArea(String name, int capacity, long parent, long plan)
 	{
 		this.booked = new ArrayList<Booking>();
 		this.name = name;
@@ -55,19 +55,19 @@ public class SeatingArea extends PersistantObject {
 		this.capacity = capacity;
 	}
 
-	public SeatingArea getParent() {
+	public long getParent() {
 		return parent;
 	}
 
-	public void setParent(SeatingArea parent) {
+	public void setParent(long parent) {
 		this.parent = parent;
 	}
 
-	public SeatingPlan getPlan() {
+	public long getPlan() {
 		return plan;
 	}
 
-	public void setPlan(SeatingPlan plan) {
+	public void setPlan(long plan) {
 		this.plan = plan;
 	}
 

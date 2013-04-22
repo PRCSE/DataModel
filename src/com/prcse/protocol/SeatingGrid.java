@@ -16,7 +16,12 @@ public class SeatingGrid extends BaseRequest {
 
 	@Override
 	public void handleRequest(Connectable dataSource) {
-		this.seatingAreas = ((PrcseSource)dataSource).getEventSeatingMap(eventId);
+		try {
+			this.seatingAreas = ((PrcseSource)dataSource).getEventSeatingMap(eventId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

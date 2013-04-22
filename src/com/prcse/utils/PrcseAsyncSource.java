@@ -1,5 +1,6 @@
 package com.prcse.utils;
 
+import com.prcse.protocol.AvailableSeats;
 import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
@@ -19,4 +20,6 @@ public interface PrcseAsyncSource extends Connectable {
 	public void cancelBooking(CustomerBooking request, ResponseHandler callback);
 	
 	public void getEventSeatingMap(long eventId, ResponseHandler callback);
+	
+	public void getEventAvailability(AvailableSeats request, ResponseHandler callback);
 }

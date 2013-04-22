@@ -11,6 +11,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.prcse.datamodel.Artist;
+import com.prcse.protocol.AvailableSeats;
 import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
@@ -68,7 +69,13 @@ public class PrcseConnection extends AsyncSource implements PrcseAsyncSource {
 
 	@Override
 	public void getEventSeatingMap(long eventId, ResponseHandler callback) {
-		// TODO Auto-generated method stub
-		
+		// TODO will implement the seating plan visual grid from database
+	}
+
+	@Override
+	public void getEventAvailability(AvailableSeats request, ResponseHandler callback) {
+		request.setRequestId(this.nextRequestId());
+		this.requestCallbacks.put(new Integer(request.getRequestId()), callback);
+		addToOutput(request);
 	}
 }
