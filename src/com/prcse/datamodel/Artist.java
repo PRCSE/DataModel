@@ -1,7 +1,9 @@
 package com.prcse.datamodel;
 
 import java.util.ArrayList;
-
+/*
+ * Class which holds information about artists
+ */
 public class Artist extends PersistantObject {
 
 	// ======== Class Variables ======================================================== //

@@ -6,8 +6,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+/*
+ * Class used for creating events and holds information about events
+ */
 public class Event extends PersistantObject {
 
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = -406642166220542302L;
 	private ArrayList<Billing> billings;
 	private String name;
@@ -15,6 +20,9 @@ public class Event extends PersistantObject {
 	private Date startTime;
 	private Date endTime;
 	private SeatingPlan seatingPlan;
+	
+	
+	// ======== Class Constructor ====================================================== //
 	
 	public Event(long id, String name, Date startTime, Date endTime)
 	{
@@ -26,6 +34,9 @@ public class Event extends PersistantObject {
 		this.seatingPlan = null;
 	}
 
+	
+	// ======== Class Getters/Setters =================================================== //
+	
 	public ArrayList<Billing> getBillings() 
 	{
 		return billings;

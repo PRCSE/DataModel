@@ -1,13 +1,21 @@
 package com.prcse.datamodel;
 
+/*
+ * Class used for creating favourites for customers such as artist, venue, stuff. Holds favourite info. Get it?
+ */
 public class Favourite extends PersistantObject {
 
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = -5958147671107102663L;
 	private Long customerId;
 	private Long artistId;
 	private Long venueId;
 	private Long genreId;
 	private Long eventId;
+	
+	
+	// ======== Class Constructors ===================================================== //
 	
 	// default constructor
 	public Favourite() {
@@ -33,6 +41,9 @@ public class Favourite extends PersistantObject {
 		
 		this.setId(id);
 	}
+	
+	
+	// ======== Class Getters/Setters =================================================== //
 	
 	public Long getCustomerId() {
 		return customerId;

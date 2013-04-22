@@ -1,5 +1,8 @@
 package com.prcse.datamodel;
 
+/*
+ * TODO for Dash: write class description. I, Vlad, have not the slightest idea what this does and I think my brain is dead from over 12 hours of coding
+ */
 public class Billing extends PersistantObject {
 
 	// ======== Class Variables ======================================================== //

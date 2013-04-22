@@ -2,15 +2,23 @@ package com.prcse.datamodel;
 
 import java.util.ArrayList;
 
-
+/*
+ * Class used for creating/managing seating areas
+ */
 public class SeatingArea extends PersistantObject {
 
+	
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = 1617913797946293969L;
 	private ArrayList<Booking> booked;
 	private String name;
 	private int capacity;
 	private long parent;
 	private long plan;
+	
+	
+	// ======== Class Constructor ====================================================== //
 	
 	public SeatingArea(String name, int capacity, long parent, long plan)
 	{
@@ -20,6 +28,9 @@ public class SeatingArea extends PersistantObject {
 		this.parent = parent;
 		this.plan = plan;
 	}
+	
+	
+	// ======== Class Getters/Setters =================================================== //
 	
 	public void addBooking(Booking booked)
 	{

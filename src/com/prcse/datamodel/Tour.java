@@ -3,15 +3,21 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 
 /*
- *
+ *Class used when creating/managing tours information
  */
 public class Tour extends PersistantObject {
 
+	
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = -3305178071548108866L;
 	private ArrayList<Billing> bills;
 	private String name;
 	private Artist artist;
 	private String thumb;
+	
+	
+	// ======== Class Constructors ===================================================== //
 	
 	public Tour(long id, String name, Artist artist)
 	{
@@ -25,6 +31,9 @@ public class Tour extends PersistantObject {
 	{
 		this.name = name;
 	}
+	
+	
+	// ======== Class Getters/Setters =================================================== //
 	
 	public void addBill(Billing bill)
 	{

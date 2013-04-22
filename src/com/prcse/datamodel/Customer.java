@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /*
- *
+ *Class used in the creation of a human bein....erm, customer... It holds information about a customer.
  */
 public class Customer extends PersistantObject {
 
@@ -201,13 +201,6 @@ public class Customer extends PersistantObject {
         	return fmt.format(created);
     	}
     	return null;
-    	
-    	// old custom format
-//    	String date;
-//    	date = created.toString();
-//    	String[] dateParts = date.split(" ");
-//    	date = dateParts[5] + "-" + dateParts[1] + "-" + dateParts[2];
-//    	return date;
     }
 
 	public String getThumb() {

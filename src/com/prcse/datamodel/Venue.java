@@ -3,8 +3,13 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 
 
-
+/*
+ * Class used in the creation/and/or/editing of a venue like object
+ */
 public class Venue extends PersistantObject {
+	
+	
+	// ======== Class Variables ======================================================== //
 	
 	private static final long serialVersionUID = 7718540087157370890L;
 	private ArrayList<SeatingPlan> seatingPlan;
@@ -15,6 +20,9 @@ public class Venue extends PersistantObject {
 	private String postcode;
 	private String description;
 
+	
+	// ======== Class Constructors ===================================================== //
+	
 	public Venue(long id, String name)
 	{
 		this.seatingPlan = new ArrayList<SeatingPlan>();
@@ -41,6 +49,9 @@ public class Venue extends PersistantObject {
 		this.description = description;
 	}
 
+	
+	// ======== Class Getters/Setters =================================================== //
+	
 	public void addSeatingPlan(SeatingPlan seatingPlan)
 	{
 		this.seatingPlan.add(seatingPlan);

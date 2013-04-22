@@ -2,11 +2,20 @@ package com.prcse.datamodel;
 
 import java.util.ArrayList;
 
+/*
+ * TODO: write class description
+ */
 public class Permission extends PersistantObject {
 
+	
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = -3700183972858884680L;
 	private ArrayList<Account> accounts;
 	private String name;
+	
+	
+	// ======== Class Constructor ====================================================== //
 	
 	public Permission(String name)
 	{
@@ -14,6 +23,9 @@ public class Permission extends PersistantObject {
 		this.name = name;
 	}
 
+	
+	// ======== Class Getters/Setters =================================================== //
+	
 	public ArrayList<Account> getAccounts() {
 		return accounts;
 	}

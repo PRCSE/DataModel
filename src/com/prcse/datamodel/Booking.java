@@ -1,9 +1,11 @@
 package com.prcse.datamodel;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+ * Class for creating bookings. Holds information needed to create a booking
+ */
 public class Booking extends PersistantObject {
 
 	// ======== Class Variables ======================================================== //

@@ -5,7 +5,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-// Customer account which holds details for login
+/*
+ * Customer account which holds details for login
+ */
 public class Account extends PersistantObject {
 
 	// ======== Class Variables ======================================================== //
