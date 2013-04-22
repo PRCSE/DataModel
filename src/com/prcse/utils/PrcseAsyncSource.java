@@ -5,6 +5,7 @@ import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
 import com.prcse.protocol.CustomerInfo;
 
+// interface for client side connection protocols
 public interface PrcseAsyncSource extends Connectable {
 
 	public abstract void getFrontPage(ResponseHandler callback);

@@ -81,7 +81,7 @@ public class AsyncSource extends Observable implements Connectable, Runnable {
 	}
 
 	// flag datasource change
-	protected void changed(Object arg1) {
+	public void changed(Object arg1) {
 		setChanged();
 		notifyObservers(arg1);
 		clearChanged();

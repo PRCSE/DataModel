@@ -3,17 +3,20 @@ package com.prcse.protocol;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.prcse.datamodel.SeatingArea;
 import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
 
 public class SeatingGrid extends BaseRequest {
 	
-	
+	// ======== Class Variables ======================================================== //
 	
 	private static final long serialVersionUID = 1220975553304345677L;
 	private long eventId;
-	private ArrayList<HashMap> seatingAreas;
+	private ArrayList<HashMap<Long, SeatingArea>> seatingAreas;
 
+	// ======== Class Constructor ====================================================== //
+	
 	public SeatingGrid(long eventId) {
 		this.eventId = eventId;
 	}
