@@ -38,7 +38,7 @@ public class CustomerBooking extends BaseRequest {
 	}
 	
 	// ======== Class Getters/Setters =================================================== //
-
+	
 	public long getCustomerId() {
 		return customerId;
 	}

@@ -1,6 +1,7 @@
 package com.prcse.datamodel;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /*
  * Class used for creating/managing seating areas
@@ -31,6 +32,20 @@ public class SeatingArea extends PersistantObject {
 	
 	
 	// ======== Class Getters/Setters =================================================== //
+	
+	public String getNameAsId() {
+		String[] tempStrings = this.name.split("\\s");
+		String returnString = "";
+		
+		try {
+			returnString = tempStrings[0] + "_" + tempStrings[1];
+		}
+		catch (Exception exception) {
+			System.out.println("WOOPS : Index out of whack");
+		}
+		
+		return returnString;
+	}
 	
 	public void addBooking(Booking booked)
 	{
