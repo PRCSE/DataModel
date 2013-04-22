@@ -9,6 +9,8 @@ import java.util.Date;
  */
 public class Customer extends PersistantObject {
 
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = 3339993911539002972L;
 	private Account account;
 	private ArrayList<Booking> bookings;
@@ -25,6 +27,8 @@ public class Customer extends PersistantObject {
     private String country;
     private Date created;
     private String thumb;
+    
+    // ======== Class Constructors ===================================================== //
     
     public Customer()
     {
@@ -70,16 +74,7 @@ public class Customer extends PersistantObject {
         }
     }
     
-    @Override
-    public String toString()
-    {
-    	return 		"\n id c-a: " + this.getId() + "-" + this.account.getId()
-    			+	"\n username: " + this.account.getEmail()
-    			+	"\n password: " + this.account.getToken()
-    			+	"\n forename: " + this.getForename()
-    			+	"\n surname: " 	+ this.getSurname()
-    			+	"\n created: " + this.createdAsString();
-    }
+    // ======== Class Getters/Setters =================================================== //
     
     public ArrayList<Booking> getBookings() {
         return bookings;
@@ -238,4 +233,15 @@ public class Customer extends PersistantObject {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	@Override
+    public String toString()
+    {
+    	return 		"\n id c-a: " + this.getId() + "-" + this.account.getId()
+    			+	"\n username: " + this.account.getEmail()
+    			+	"\n password: " + this.account.getToken()
+    			+	"\n forename: " + this.getForename()
+    			+	"\n surname: " 	+ this.getSurname()
+    			+	"\n created: " + this.createdAsString();
+    }
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Artist extends PersistantObject {
 
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = 1332872240262641119L;
 	private ArrayList<String> genres;
 	private ArrayList<Billing> billings;
@@ -11,6 +13,8 @@ public class Artist extends PersistantObject {
 	private String name;
 	private String bio;
 	private String thumb;
+	
+	// ======== Class Constructors ===================================================== //
 	
 	public Artist(long id, String name, String bio, String genres, String thumb) {
 		super();
@@ -29,6 +33,8 @@ public class Artist extends PersistantObject {
 			}
 		}
 	}
+	
+	// ======== Class Getters/Setters =================================================== //
 	
 	public ArrayList<String> getGenres() {
 		return genres;
@@ -71,7 +77,17 @@ public class Artist extends PersistantObject {
 	public void setThumb(String thumb) {
 		this.thumb = thumb;
 	}
+	
+    public ArrayList<Tour> getTours() {
+    	return this.tours;
+    }
+    
+    public Tour getTourAt(int tourId) {
+    	return this.tours.get(tourId);
+    }
 
+	// ======== Class Methods ====================================================== //
+	
 	public void addGenre(String genre)
     {
     	this.genres.add(genre);
@@ -96,14 +112,6 @@ public class Artist extends PersistantObject {
     
     public void removeTour(Tour tour) {
     	this.tours.remove(tour);
-    }
-    
-    public ArrayList<Tour> getTours() {
-    	return this.tours;
-    }
-    
-    public Tour getTourAt(int tourId) {
-    	return this.tours.get(tourId);
     }
 
 	@Override

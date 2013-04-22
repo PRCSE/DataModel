@@ -4,14 +4,10 @@ package com.prcse.datamodel;
 import java.util.ArrayList;
 import java.util.Date;
 
-/* Dev Notes
- * 
- * created, confirmed, cancelRequest, cancelled, cancledConfirmed
- * 
- */
-
 public class Booking extends PersistantObject {
 
+	// ======== Class Variables ======================================================== //
+	
 	private static final long serialVersionUID = 2040753085021283398L;
 	private ArrayList<SeatingArea> seats;
 	private Event event = null;
@@ -21,6 +17,8 @@ public class Booking extends PersistantObject {
     private Date cancelled;
     private Date cancelConfirmed;
 
+    // ======== Class Constructors ===================================================== //
+    
     public Booking(Event event)
     {
     	this.event = event;
@@ -36,6 +34,8 @@ public class Booking extends PersistantObject {
     	this.seats = seats;
     	this.event = event;
     }
+    
+    // ======== Class Getters/Setters =================================================== //
     
     public void confirm()
     {

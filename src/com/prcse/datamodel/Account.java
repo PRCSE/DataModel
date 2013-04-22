@@ -29,6 +29,7 @@ public class Account extends PersistantObject {
     // Custom constructor : email - customer email, password - password to be obfuscated, newAccount - flag for new accounts
     public Account(String email, String password, boolean newAccount)
     {
+    	this.permissions = new ArrayList<Permission>();
         this.email = email;
         
         // If creating new account then salt and hash else copy from source
@@ -42,7 +43,7 @@ public class Account extends PersistantObject {
         }
     }
     
-    // ======== Class Getters/Setters ================================================== //
+    // ======== Class Getters/Setters =================================================== //
     
     public String getEmail() 
     {
@@ -83,6 +84,8 @@ public class Account extends PersistantObject {
 	public void setPreferences(String preferences) {
 		this.preferences = preferences;
 	} 
+	
+	// ======== Class Methods ====================================================== //
     
 	// Method to produce a salted string from email and password
     private static String salt(String message, String salt)
@@ -90,9 +93,10 @@ public class Account extends PersistantObject {
     	// salted message placeholder
     	String saltedMessage = null;
     	
-    	// 
+    	// email or password are null then break
     	if (message == null || salt == null)
     	{
+    		// return... something... or is it nothing?
     		return null;
     	}
     	
@@ -107,15 +111,19 @@ public class Account extends PersistantObject {
     	return saltedMessage;
     }
     
+    // Takes a salted string and hashes it using MD5
     private static String hash(String message)
     {
+    	// hash placeholder
     	String hashedMessage = null;
     	
+    	// break if the salted string is null
     	if (message == null)
     	{
     		return null;
     	}
     	
+    	// Perform hash functions
     	try
     	{
     		MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -132,18 +140,18 @@ public class Account extends PersistantObject {
     	return hashedMessage;
     }
     
+    // Formatted add to permissions arraylist variable
     public void addPermission(Permission permission)
     {
-    	if (this.permissions == null)
-    	{
-    		this.permissions = new ArrayList<Permission>();
-    	}
+    	// if you add a permission you have to remove it from the permissions list
     	permission.addAccount(this);
     	this.permissions.add(permission);
     }
     
+    // Formatted add to permissions arraylist
     public void removePermission(Permission permission)
     {
+    	// if you remove a permission you have to remove it from the permissions list
     	permission.removeAccount(this);
     	this.permissions.remove(permission);
     }
