@@ -194,7 +194,7 @@ public class Customer extends PersistantObject {
 		return created;
 	}
     
-    public String createdAsString() {
+	public String createdAsString() {
     	// format date for oracle/mysql
     	if(created != null) {
     		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");

@@ -8,11 +8,17 @@ import com.prcse.datamodel.Booking;
 import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
 
+// This request will 
 public class CustomerBooking extends BaseRequest {
+
+	// ======== Class Variables ======================================================== //
 	
+	private static final long serialVersionUID = -8119187855368516668L;
 	private long customerId;
 	private ArrayList<Long> seatIds;
 	private Booking booking;
+	
+	// ======== Class Constructor ====================================================== //
 	
 	public CustomerBooking() {
 		super();
@@ -30,45 +36,8 @@ public class CustomerBooking extends BaseRequest {
 			seatIds = new ArrayList<Long>();
 		}
 	}
-
-	@Override
-	public void handleRequest(Connectable dataSource) {
-		// TODO Auto-generated method stub
-		if(this.booking == null) {
-			// create booking
-			try {
-				((PrcseSource)dataSource).createBooking(this);
-			} catch (Exception e) {
-				this.error = e.getMessage();
-			}
-		}
-		else if(this.booking.getCancelled() != null) {
-			// sync booking
-			try {
-				((PrcseSource)dataSource).cancelBooking(this);
-			} catch (Exception e) {
-				this.error = e.getMessage();
-			}
-		}
-	}
-
-	@Override
-	public Object getResult() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean shouldBroadcast() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean shouldSync() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+	// ======== Class Getters/Setters =================================================== //
 
 	public long getCustomerId() {
 		return customerId;
@@ -114,5 +83,43 @@ public class CustomerBooking extends BaseRequest {
         	return fmt.format(cancelled);
     	}
     	return null;
+	}
+	
+	// ======== Implemented Methods ===================================================== //
+	
+	// This method will take call the method on the datasource to get the database data
+	@Override
+	public void handleRequest(Connectable dataSource) {
+		if(this.booking == null) {
+			// create booking
+			try {
+				((PrcseSource)dataSource).createBooking(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
+		}
+		else if(this.booking.getCancelled() != null) {
+			// sync booking
+			try {
+				((PrcseSource)dataSource).cancelBooking(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
+		}
+	}
+
+	@Override
+	public Object getResult() {
+		return null;
+	}
+
+	@Override
+	public boolean shouldBroadcast() {
+		return true;
+	}
+
+	@Override
+	public boolean shouldSync() {
+		return false;
 	}
 }

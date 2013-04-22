@@ -7,8 +7,13 @@ import com.prcse.utils.PrcseSource;
 
 public class CustomerForm extends BaseRequest {
 	
+	// ======== Class Variables ======================================================== //
+	
+	private static final long serialVersionUID = 7624189611244361785L;
 	ArrayList<String> titles;
 	ArrayList<String> countries;
+	
+	// ======== Class Constructor ====================================================== //
 
 	public CustomerForm() {
 		super();
@@ -23,6 +28,8 @@ public class CustomerForm extends BaseRequest {
 		this.titles = title;
 		this.countries = country;
 	}
+	
+	// ======== Class Getters/Setters =================================================== //
 
 	public ArrayList<String> getTitles() {
 		return titles;
@@ -31,6 +38,8 @@ public class CustomerForm extends BaseRequest {
 	public ArrayList<String> getCountries() {
 		return countries;
 	}
+	
+	// ======== Implemented Methods ===================================================== //
 
 	@Override
 	public void handleRequest(Connectable dataSource) {
