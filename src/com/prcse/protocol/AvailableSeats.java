@@ -7,6 +7,7 @@ import com.prcse.datamodel.SeatingArea;
 import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
 
+// Protocol Request Object for Getting the available seats and seating areas of a given Event
 public class AvailableSeats extends BaseRequest {
 	ArrayList<SeatingArea> availableSeats;
 	Event event;
