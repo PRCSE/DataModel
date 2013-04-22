@@ -10,13 +10,17 @@ import com.prcse.utils.PrcseSource;
 
 public class CustomerInfo extends BaseRequest {
 	
+	// ======== Class Variables ======================================================== //
+	
+	private static final long serialVersionUID = 2278991424043159061L;
 	private Customer customer;
 	private ArrayList<Favourite> favourites;
 	private String email;
 	private String password;
-	// variable not exposed to client
-	private transient boolean admin;
+	private transient boolean admin; // variable not exposed to client, cannot be serialised
 	private boolean verified;
+	
+	// ======== Class Constructor ====================================================== //
 	
 	public CustomerInfo() {
 		super();
@@ -32,41 +36,8 @@ public class CustomerInfo extends BaseRequest {
 		this.password = tempAccount.getToken();
 	}
 	
-	@Override
-	public void handleRequest(Connectable dataSource) {
-		if(this.customer == null){
-			// login
-			try {
-				((PrcseSource)dataSource).login(this);
-			} catch (Exception e) {
-				this.error = e.getMessage();
-			}
-		}
-		else {
-			//sync customer data
-			try {
-				((PrcseSource)dataSource).syncCustomer(this);
-			} catch (Exception e) {
-				this.error = e.getMessage();
-			}
-		}
-	}
-
-	@Override
-	public Object getResult() {
-		return null;
-	}
-
-	@Override
-	public boolean shouldBroadcast() {
-		return false;
-	}
-
-	@Override
-	public boolean shouldSync() {
-		return true;
-	}
-
+	// ======== Class Getters/Setters =================================================== //
+	
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -118,5 +89,42 @@ public class CustomerInfo extends BaseRequest {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+	
+	// ======== Implemented Methods ===================================================== //
+	
+	@Override
+	public void handleRequest(Connectable dataSource) {
+		if(this.customer == null){
+			// if they havn't set the customer login (get the customer)
+			try {
+				((PrcseSource)dataSource).login(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
+		}
+		else {
+			//if they have set the customer sync customer data (insert or update)
+			try {
+				((PrcseSource)dataSource).syncCustomer(this);
+			} catch (Exception e) {
+				this.error = e.getMessage();
+			}
+		}
+	}
+
+	@Override
+	public Object getResult() {
+		return null;
+	}
+
+	@Override
+	public boolean shouldBroadcast() {
+		return false;
+	}
+
+	@Override
+	public boolean shouldSync() {
+		return true;
 	}
 }

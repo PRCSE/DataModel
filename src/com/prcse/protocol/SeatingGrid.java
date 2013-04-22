@@ -7,6 +7,10 @@ import com.prcse.utils.Connectable;
 import com.prcse.utils.PrcseSource;
 
 public class SeatingGrid extends BaseRequest {
+	
+	
+	
+	private static final long serialVersionUID = 1220975553304345677L;
 	private long eventId;
 	private ArrayList<HashMap> seatingAreas;
 

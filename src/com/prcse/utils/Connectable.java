@@ -2,6 +2,7 @@ package com.prcse.utils;
 
 import java.util.Observer;
 
+// interface for classes with connections (client-server, server-database)
 public interface Connectable {
 	public abstract void connect() throws Exception;
 	

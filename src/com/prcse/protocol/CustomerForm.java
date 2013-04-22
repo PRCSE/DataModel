@@ -44,10 +44,11 @@ public class CustomerForm extends BaseRequest {
 	@Override
 	public void handleRequest(Connectable dataSource) {
 		if(this.titles.size() < 1 || this.countries.size() < 1){
-			// get data from db
+			// get enumeration table data from database
 			try {
 				CustomerForm data = ((PrcseSource)dataSource).getCustomerFormData(this);
 				
+				// check if it came back with results
 				if(data.getTitles().size() > 1 && data.getCountries().size() > 1) {
 					titles = data.getTitles();
 					countries = data.getCountries();
@@ -61,6 +62,7 @@ public class CustomerForm extends BaseRequest {
 			}
 		}
 		else {
+			// make sure results havn't already been set
 			this.setError("Already Retrieved Customer Form Data");
 		}
 	}

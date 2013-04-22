@@ -1,16 +1,5 @@
 package com.prcse.utils;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Observable;
-import java.util.Observer;
-
-import com.prcse.datamodel.Artist;
 import com.prcse.protocol.AvailableSeats;
 import com.prcse.protocol.CustomerBooking;
 import com.prcse.protocol.CustomerForm;
