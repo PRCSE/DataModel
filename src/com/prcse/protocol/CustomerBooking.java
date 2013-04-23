@@ -90,7 +90,7 @@ public class CustomerBooking extends BaseRequest {
 	// This method will take call the method on the datasource to get the database data
 	@Override
 	public void handleRequest(Connectable dataSource) {
-		if(this.booking == null) {
+		if(this.booking != null) {
 			// create booking
 			try {
 				((PrcseSource)dataSource).createBooking(this);
