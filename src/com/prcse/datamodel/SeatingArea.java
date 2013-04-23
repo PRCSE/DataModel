@@ -38,7 +38,7 @@ public class SeatingArea extends PersistantObject {
 		String returnString = "";
 		
 		try {
-			returnString = tempStrings[0] + "_" + tempStrings[1];
+			returnString = tempStrings[0].toLowerCase() + "_" + tempStrings[1].toLowerCase();
 		}
 		catch (Exception exception) {
 			System.out.println("WOOPS : Index out of whack");

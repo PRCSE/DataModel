@@ -67,7 +67,9 @@ public class AsyncSource extends Observable implements Connectable, Runnable {
 
 	// establish server connection
 	public void connect() throws Exception {
+		System.out.println("Opening connection to server");
 		socket = new Socket(this.host, this.port);
+		System.out.println("Socket constructed");
 	    this.shouldDisconnect = false;
 	    changed(null);
 	}
@@ -112,6 +114,7 @@ public class AsyncSource extends Observable implements Connectable, Runnable {
 
 	// main run method for the connection thread
 	public void run() {
+		
 		try {
 			this.connect();
 	
