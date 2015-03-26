@@ -120,6 +120,6 @@ public class CustomerBooking extends BaseRequest {
 
 	@Override
 	public boolean shouldSync() {
-		return false;
+		return true;
 	}
 }
